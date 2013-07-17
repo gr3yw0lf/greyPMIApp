@@ -84,7 +84,7 @@ if ($mysqli->connect_errno) {
 	printf('<embed name="Moon2" id="Moon2" src="moonSvg.php?illum=%s&age=%s&phase=%s&phases=%s" width=102 height=102 type="image/svg+xml">',
 		$data['Moon']['illum']['value'],
 		$data['Moon']['age']['value'],
-		$data['Moon']['phase']['value']*100*2,
+		$data['Moon']['illum']['value']*100,
 		urlencode(implode(",",$phaseDates))
 	);
 	print "<br>";
@@ -110,7 +110,7 @@ if ($mysqli->connect_errno) {
 	}
 ?>
 <div id="date">Date Uploaded: <?php echo $data['Moon']['phase']['modified']; ?></div>
-
+<h5><a href="https://github.com/gr3yw0lf/greyPMIApp">On Github</a></h5>
 <hr>
 <?php echo $data['error']; ?>
 <br>
