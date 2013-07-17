@@ -25,6 +25,8 @@ $cy = 50;
 #$cx=100;
 #$cy=100;
 
+$background =Array ( 'color' => 'black' );
+
 if ($age<15) {
 	# this is pre full moon
 	if ($illum<0.5) {
