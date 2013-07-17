@@ -75,21 +75,17 @@ if ($mysqli->connect_errno) {
 
 <h1>Moon Data</h1>
 
-<div id="date"><?php echo $data['Moon']['phase']['modified']; ?></div>
 <?php
 	//printf('<embed src="svg.php?phase=%s&fullMoon=%s" type="image/svg+xml" />',
 	$phaseDates=Array();
 	foreach (split(",",$data['Moon']['phaseOrder']['value']) as $item) {
 		array_push($phaseDates, $data['Moon'][$item]['value']);
 	}
-	printf('<embed name="Moon" id="Moon" src="svg.php?phase=%s&phases=%s" width=295 height=300 type="image/svg+xml">',
+	printf('<embed name="Moon2" id="Moon2" src="moonSvg.php?illum=%s&age=%s&phase=%s&phases=%s" width=102 height=102 type="image/svg+xml">',
+		$data['Moon']['illum']['value'],
+		$data['Moon']['age']['value'],
 		$data['Moon']['phase']['value']*100*2,
 		urlencode(implode(",",$phaseDates))
-	);
-	print "<br>";
-	printf('<embed name="Moon2" id="Moon2" src="moonSvg.php?illum=%s&age=%s" width=102 height=102 type="image/svg+xml">',
-		$data['Moon']['illum']['value'],
-		$data['Moon']['age']['value']
 	);
 	print "<br>";
 	foreach (Array( 
@@ -113,6 +109,7 @@ if ($mysqli->connect_errno) {
 		);
 	}
 ?>
+<div id="date">Date Uploaded: <?php echo $data['Moon']['phase']['modified']; ?></div>
 
 <hr>
 <?php echo $data['error']; ?>

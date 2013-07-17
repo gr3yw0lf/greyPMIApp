@@ -117,6 +117,13 @@ foreach($nodes as $circle) {
 	}
 }
 
+$nodes = $xdoc->getElementsByTagName('text');
+foreach($nodes as $text) {
+	if ($text->GetAttribute('id') == 'phaseText') {
+		$text->nodeValue = sprintf("%.2d%%", $_REQUEST['phase']);
+	}
+}
+
 echo $xdoc->saveXML();
 
 ?>
