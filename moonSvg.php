@@ -20,13 +20,18 @@ if (array_key_exists("s",$_REQUEST)) {
 	$s = $_REQUEST['s'];
 }
 
-if ($age>15) {
-	# this is past full moon
+$cx = 51;
+$cy = 50;
+#$cx=100;
+#$cy=100;
+
+if ($age<15) {
+	# this is pre full moon
 	if ($illum<0.5) {
 
 		$rightArc=Array (
 			'color'=> 'black',
-			'translate'=> (200.0*$illum),
+			'translate'=> ($cx*2*$illum),
             'scale'=> (-2.0*$illum)+1.0
 		);
 		$background['color'] = 'white';
@@ -42,13 +47,13 @@ if ($age>15) {
 		);
 		$leftArc = Array (
 			'color' => 'white',
-			'translate'=> (-200.0*$illum)+200.0,
+			'translate'=> ($cx*-2*$illum)+($cx*2),
 			'scale'=> (2.0*$illum)-1.0
 		);
 	}
 } else {
-	# $age <15
-	# this is pre-full moon
+	# $age >15
+	# this is post-full moon
 	if ($illum<0.5) {
 		$rightArc = Array (
 			'color' => "black"
@@ -56,14 +61,14 @@ if ($age>15) {
 		$background['color'] = 'white';
 		$leftArc = Array (
 			'color' => 'black',
-			'translate'=> (200.0*$illum),
+			'translate'=> ($cx*2*$illum),
 			'scale'=> (-2.0*$illum)+1.0
 		);
 	} else {
 		#$illum > 0.5
 		$rightArc = Array (
 			'color' => "white",
-			'translate'=> (-200.0*$illum)+200.0,
+			'translate'=> ($cx*-2*$illum)+($cx*2),
 			'scale'=> (2.0*$illum)-1.0
 		);
 		$leftArc = Array (
