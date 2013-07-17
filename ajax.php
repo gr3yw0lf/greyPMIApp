@@ -3,6 +3,7 @@
 include "./config.php";
 
 $debug = true;
+$auth = false;
 
 $data = Array( 'date' => Date("m/d/y H:i"));
 
@@ -15,12 +16,22 @@ if ($mysqli->connect_errno) {
 	if ($debug) {
 		$data['debug']['request'] = $_REQUEST;
 	}
+
 	
 	if (array_key_exists('data', $_REQUEST)) {	
 		#$jsonObj = json_decode(file_get_contents('php://input'));
 		$jsonObj = json_decode($_REQUEST['data']);
+		
+		if (isset($jsonObj->{'auth'})) {
+			$auth = checkSendAuth($jsonObj->{'auth'});
+		}
+		$data['debug']['auth'] = $auth;
+		if (!$auth) {
+			echo json_encode($data);
+			exit;
+		}
 
-		if (isset($jsonObj->{'dataType'})) {
+		if (array_key_exists('dataType',$jsonObj)) {
 			
 			// obtain the sql data types
 			$sStmt = $mysqli->prepare("
@@ -85,6 +96,8 @@ if ($mysqli->connect_errno) {
 			}
 			$insertStatement->close();
 			$updateStatement->close();
+		} else {
+			$data['error'] = "No datatype";
 		}
 	} 
 	
