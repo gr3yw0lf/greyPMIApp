@@ -1,4 +1,6 @@
 <?php
+header('Content-type: image/svg+xml');
+
 $xdoc = new DomDocument;
 $xdoc->Load('svg.svg');
 
