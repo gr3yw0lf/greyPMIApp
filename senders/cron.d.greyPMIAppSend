@@ -1,0 +1,1 @@
+0 */6	* * *	root	if [ -x /home/web/scripts/sendMoonDetails.pl  ]; then env LANG=C /home/web/scripts/sendMoonDetails.pl 2>&1 >> /dev/null ; fi 2>&1 > /dev/null

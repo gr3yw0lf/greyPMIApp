@@ -1,0 +1,28 @@
+# Secure.pm - Connection details for the perl scripts sending data for the greyPMIApp
+
+package GreyPMIApp::Secure;
+use warnings;
+use strict;
+
+our $VERSION = '1.00';
+
+sub new {
+	my $class = shift;
+	my $self = {
+		_authKey => 'KEY NEEDS TO BE PLACED HERE',
+		_urls => [ 'http://localhost/greyPMIApp/ajax.php', 'http://somewhere.test.local/greyPMIApp/ajax.php' ]
+	};
+	bless $self, $class;
+	return $self;
+}; # new
+
+sub getUrls {
+	my ($self) = @_;
+	return @{$self->{_urls}};
+}
+sub getAuth {
+	my ($self) = @_;
+	return $self->{_authKey};
+}
+
+1;

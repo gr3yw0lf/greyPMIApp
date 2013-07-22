@@ -3,3 +3,4 @@ sqlQueries.txt
 *.un~
 config.php*
 .*.swp
+senders/GreyPMIApp/Secure.pm

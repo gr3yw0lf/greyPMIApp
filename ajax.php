@@ -2,7 +2,7 @@
 
 include "./config.php";
 
-$debug = true;
+$debug = false;
 $auth = false;
 
 $data = Array( 'date' => Date("m/d/y H:i"));
@@ -25,10 +25,21 @@ if ($mysqli->connect_errno) {
 		if (isset($jsonObj->{'auth'})) {
 			$auth = checkSendAuth($jsonObj->{'auth'});
 		}
-		$data['debug']['auth'] = $auth;
+		$data['authStatus'] = $auth;
 		if (!$auth) {
 			echo json_encode($data);
 			exit;
+		}
+
+		// if we made it here, checkSendAuth returned true
+		
+		// check to see if debug was requested
+		if (array_key_exists('debug',$jsonObj)) {
+			# this is a string, not a bool
+			if ($jsonObj->{'debug'} == "true") {
+				$debug = true;
+			}
+			$data['debug']['requested'] = $debug;
 		}
 
 		if (array_key_exists('dataType',$jsonObj)) {
@@ -55,7 +66,9 @@ if ($mysqli->connect_errno) {
 			$sStmt->bind_result($id,$dataTypeId,$key);
 			while ($sStmt->fetch()) {
 				$mapDataTypeKeyToId[$dataTypeId][$key] = $id;
-				$data['test']['mapDataTypeKeyToId'][$dataTypeId][$key] = $id;
+				if ($debug) {
+					$data['debug']['mapDataTypeKeyToId'][$dataTypeId][$key] = $id;
+				}
 		    }
 			$sStmt->close();
 

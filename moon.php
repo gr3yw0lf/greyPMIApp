@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../includes/jquery-ui-1.10.2/ui/jquery-ui.js"></script>
 <script type="text/javascript" src="./moon.js"></script>
 
-
 </head>
 <body>
 <?php
@@ -71,22 +70,24 @@ if ($mysqli->connect_errno) {
 	$mysqli->close();
 }
 
-?>
-
-<h1>Moon Data</h1>
-
-<?php
-	//printf('<embed src="svg.php?phase=%s&fullMoon=%s" type="image/svg+xml" />',
 	$phaseDates=Array();
 	foreach (split(",",$data['Moon']['phaseOrder']['value']) as $item) {
 		array_push($phaseDates, $data['Moon'][$item]['value']);
 	}
+	printf('<embed name="Moon1" id="Moon1" src="moonDetailsSvg.php?illum=%s&age=%s&distance=%s&phases=%s" width=320 height=380 type="image/svg+xml">',
+		$data['Moon']['illum']['value'],
+		$data['Moon']['age']['value'],
+		$data['Moon']['distance']['value'],
+		urlencode(implode(",",$phaseDates))
+	);
+	print "<br>";
 	printf('<embed name="Moon2" id="Moon2" src="moonSvg.php?illum=%s&age=%s&phase=%s&phases=%s" width=102 height=102 type="image/svg+xml">',
 		$data['Moon']['illum']['value'],
 		$data['Moon']['age']['value'],
 		$data['Moon']['illum']['value']*100,
 		urlencode(implode(",",$phaseDates))
 	);
+
 	print "<br>";
 	foreach (Array( 
 		'distance', 
