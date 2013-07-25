@@ -9,14 +9,26 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    width="320"
    height="380"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="moonDetailsDiag.svg">
+   sodipodi:docname="moonDetailsDiag.svg"
+   enable-background="new">
   <defs
-     id="defs4" />
+     id="defs4">
+    <filter
+       inkscape:collect="always"
+       id="filter3881">
+      <feBlend
+         inkscape:collect="always"
+         mode="multiply"
+         in2="BackgroundImage"
+         id="feBlend3883" />
+    </filter>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -106,7 +118,7 @@
        sodipodi:rx="9.4701805"
        sodipodi:ry="9.4701805"
        d="m 314.03116,34.338427 a 9.4701805,9.4701805 0 0 1 -9.47018,-9.470181 l 9.47018,0 z"
-       transform="matrix(0.95509335,0,0,0.95509333,19.358275,76.961137)"
+       transform="matrix(0.95509335,0,0,0.95509333,9.358275,76.961137)"
        sodipodi:start="1.5707963"
        sodipodi:end="3.1415927" />
   </g>
@@ -136,6 +148,12 @@
        sodipodi:ry="80"
        d="m 230,150 c 0,44.18278 -35.81722,80 -80,80 -44.18278,0 -80,-35.81722 -80,-80 0,-44.18278 35.81722,-80 80,-80 44.18278,0 80,35.81722 80,80 z"
        transform="translate(0,672.36218)" />
+	<path
+		d="m 150,732 0,-17 -12,0 7,2.2 0,-2.2"
+		id="arcArrowDec"
+		inkscape:connector-curvature="0"
+		sodipodi:nodetypes="cccccc"
+		style="fill:none;stroke:#ff3b43;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -521,45 +539,61 @@
        sodipodi:ry="3.4821429"
        d="m 16.071429,121.74107 c 0,1.92314 -1.559009,3.48215 -3.482143,3.48215 -1.923135,0 -3.4821431,-1.55901 -3.4821431,-3.48215 0,-1.92313 1.5590081,-3.48214 3.4821431,-3.48214 1.923134,0 3.482143,1.55901 3.482143,3.48214 z"
        transform="translate(-5.3975245,35.542601)" />
-    <path
-       sodipodi:type="arc"
+    <circle
        style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
-       id="path4115-95"
-       sodipodi:cx="12.589286"
-       sodipodi:cy="121.74107"
-       sodipodi:rx="3.4821429"
-       sodipodi:ry="3.4821429"
-       d="m 16.071429,121.74107 c 0,1.92314 -1.559009,3.48215 -3.482143,3.48215 -1.923135,0 -3.4821431,-1.55901 -3.4821431,-3.48215 0,-1.92313 1.5590081,-3.48214 3.4821431,-3.48214 1.923134,0 3.482143,1.55901 3.482143,3.48214 z"
-       transform="translate(294.22109,223.18853)" />
-    <path
-       sodipodi:type="arc"
+       id="phaseDateNext-0"
+       cx="224.28"
+       cy="348.12"
+       r="3.6"
+       transform="translate(-11.8,-3.6)" />
+    <circle
        style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
-       id="path4115-9-4"
-       sodipodi:cx="12.589286"
-       sodipodi:cy="121.74107"
-       sodipodi:rx="3.4821429"
-       sodipodi:ry="3.4821429"
-       d="m 16.071429,121.74107 c 0,1.92314 -1.559009,3.48215 -3.482143,3.48215 -1.923135,0 -3.4821431,-1.55901 -3.4821431,-3.48215 0,-1.92313 1.5590081,-3.48214 3.4821431,-3.48214 1.923134,0 3.482143,1.55901 3.482143,3.48214 z"
-       transform="translate(288.54062,232.88686)" />
-    <path
-       sodipodi:type="arc"
+       id="phaseDateNext-1"
+       cx="218.29"
+       cy="357.97"
+       r="3.6"
+       transform="translate(-11.8,-3.6)" />
+    <circle
        style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
-       id="path4115-2-3"
-       sodipodi:cx="12.589286"
-       sodipodi:cy="121.74107"
-       sodipodi:rx="3.4821429"
-       sodipodi:ry="3.4821429"
-       d="m 16.071429,121.74107 c 0,1.92314 -1.559009,3.48215 -3.482143,3.48215 -1.923135,0 -3.4821431,-1.55901 -3.4821431,-3.48215 0,-1.92313 1.5590081,-3.48214 3.4821431,-3.48214 1.923134,0 3.482143,1.55901 3.482143,3.48214 z"
-       transform="translate(281.18801,242.79757)" />
-    <path
-       sodipodi:type="arc"
+       id="phaseDateNext-2"
+       cx="212.28"
+       cy="367.82"
+       r="3.6"
+       transform="translate(-11.8,-3.6)" />
+    <circle
        style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;display:inline"
-       id="path4115-7-1"
-       sodipodi:cx="12.589286"
-       sodipodi:cy="121.74107"
-       sodipodi:rx="3.4821429"
-       sodipodi:ry="3.4821429"
-       d="m 16.071429,121.74107 c 0,1.92314 -1.559009,3.48215 -3.482143,3.48215 -1.923135,0 -3.4821431,-1.55901 -3.4821431,-3.48215 0,-1.92313 1.5590081,-3.48214 3.4821431,-3.48214 1.923134,0 3.482143,1.55901 3.482143,3.48214 z"
-       transform="translate(274.57003,252.78674)" />
+       id="phaseDateNext-3"
+       cx="204.28"
+       cy="377.68"
+       r="3.6"
+       transform="translate(-11.8,-3.6)" />
   </g>
+  <g
+  	inkscape:groupmode="layer"
+	id="layer4"
+	inkscape:label="MoonLayer"
+	style="display:inline">
+    <circle id="background" cx="150" cy="150" r="50" style="stroke: black; fill: black"/>
+    <path id="rightArc" d="m 150,100 A50,50 0 0,1 150,200"
+    	style="stroke: black; fill: red"
+    />
+    <path id="leftArc" d="m 150,100 A50,50 0 1,0 150,200"
+    	style="stroke: black; fill: blue"
+    />
+    <circle id="outline" cx="150" cy="150" r="50" style="stroke: white; fill: none"/>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="MoonImage"
+     style="display:inline;opacity:0.4;">
+    <image
+       y="100"
+       x="100"
+       id="moonImg"
+       xlink:href="fullMoon.png"
+       height="100px"
+       width="100px" />
+  </g>
+
 </svg>
