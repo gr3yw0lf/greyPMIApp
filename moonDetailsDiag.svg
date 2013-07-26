@@ -362,9 +362,9 @@
        id="text3985"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987"
+         id="phaseDateText-0"
          x="33.777863"
-         y="130.62431">Mon Jun 06 06:55:23</tspan></text>
+         y="130.62431">0xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -373,9 +373,9 @@
        id="text3985-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-1"
+         id="phaseDateText-1"
          x="27.777861"
-         y="140.47588">Mon Jun 06 06:55:23</tspan></text>
+         y="140.47588">1xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -384,9 +384,9 @@
        id="text3985-4"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-2"
+         id="phaseDateText-2"
          x="21.777861"
-         y="150.32744">Mon Jun 06 06:55:23</tspan></text>
+         y="150.32744">2xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -395,9 +395,9 @@
        id="text3985-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-22"
+         id="phaseDateText-3"
          x="13.777861"
-         y="160.179">Mon Jun 06 06:55:23</tspan></text>
+         y="160.179">3xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -406,9 +406,9 @@
        id="text3985-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-6"
+         id="phaseDateText-4"
          x="224.28516"
-         y="348.12109">Mon Jun 06 06:55:23</tspan></text>
+         y="348.12109">4xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -417,9 +417,9 @@
        id="text3985-6-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-1-5"
+         id="phaseDateText-5"
          x="218.28516"
-         y="357.97266">Mon Jun 06 06:55:23</tspan></text>
+         y="357.97266">5xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -428,9 +428,9 @@
        id="text3985-4-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-2-6"
+         id="phaseDateText-6"
          x="212.28516"
-         y="367.82422">Mon Jun 06 06:55:23</tspan></text>
+         y="367.82422">6xx xxx dd dd:dd:dd</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -439,9 +439,9 @@
        id="text3985-3-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3987-22-8"
+         id="phaseDateText-7"
          x="204.28516"
-         y="377.67578">Mon Jun 06 06:55:23</tspan></text>
+         y="377.67578">7xx xxx dd dd:dd:dd</tspan></text>
     <path
        style="fill:none;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 150,250 45,185 45,165"

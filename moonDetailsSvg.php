@@ -22,6 +22,10 @@ $s=0.0;
 if (array_key_exists("s",$_REQUEST)) {
 	$s = $_REQUEST['s'];
 }
+$phaseDateList=Array();
+if (array_key_exists("phases",$_REQUEST)) {
+	$phaseDateList = split(",",$_REQUEST["phases"]);
+}
 
 $cx = 150;
 $cy = 250;
@@ -160,6 +164,11 @@ foreach($nodes as $tspan) {
 	}
 	if ($tspan->GetAttribute('id') == 'tspan3983') {
 		$tspan->nodeValue = sprintf("%0.2f", $age);
+	}
+	if (preg_match('/phaseDateText-(\d)/',$tspan->GetAttribute('id'),$matches)) {
+		// $phaseDateList[$matches[1]] = timeInSeconds=phase
+		list($time, $phase) = split("=",$phaseDateList[$matches[1]]);
+		$tspan->nodeValue = sprintf("%s", strftime("%b %a %e %H:%M" ,$time));
 	}
 }
 
