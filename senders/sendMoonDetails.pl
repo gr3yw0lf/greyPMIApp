@@ -118,21 +118,14 @@ sub getMoonDetails($) {
 
 	$$dataPtr->{'iconNumber'} = $moonIcon;
 
-	my ($phase, @times) = phaselist(time-(30*24*60*60), time+(30*24*60*60));
-	#my ($phase, @times) = phaselist(time-(1*24*60*60), time+(30*24*60*60));
-	my @nameKeys = ("newMoon", "firstQuarter", "fullMoon", "lastQuarter");
-	$count=0;
-	my @order;
+	my ($phase, @times) = phaselist(time-(28*24*60*60), time+(28*24*60*60));
+	#my @nameKeys = ("newMoon", "firstQuarter", "fullMoon", "lastQuarter");
+	
+	my @order = ();
+	# need to add the phase to each item on time in times
 	foreach my $time (@times) {
-		my $prev = $time-time;
-		my $key = $nameKeys[$phase];
-		if ($prev<0) {
-			$key = $key."Prev";
-		}
-		push(@order,$key);
-		$$dataPtr->{$key} = strftime('%a %b %e %H:%M:%S', localtime($time));
+		push(@order,"$time=$phase");
 		$phase = ($phase + 1) % 4;
-		$count++;
 	}
 	$$dataPtr->{'phaseOrder'} = join(",",@order);
 
