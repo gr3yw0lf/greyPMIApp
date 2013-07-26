@@ -70,37 +70,12 @@ if ($mysqli->connect_errno) {
 	$mysqli->close();
 }
 
-	$phaseDates=Array();
-	foreach (split(",",$data['Moon']['phaseOrder']['value']) as $item) {
-		array_push($phaseDates, $data['Moon'][$item]['value']);
-	}
 	printf('<embed name="Moon1" id="Moon1" src="moonDetailsSvg.php?illum=%s&age=%s&distance=%s&phases=%s" width=320 height=380 type="image/svg+xml">',
 		$data['Moon']['illum']['value'],
 		$data['Moon']['age']['value'],
 		$data['Moon']['distance']['value'],
-		urlencode(implode(",",$phaseDates))
+		urlencode($data['Moon']['phaseOrder']['value'])
 	);
-	print "<br>";
-	foreach (Array( 
-		'distance', 
-		'iconNumber', 
-		'age', 
-		'sunAngle', 
-		'sunDistance', 
-		'angle', 
-		'illum' 
-		) as $item) {
-		printf("%s: %s<br>\n",
-			$item,
-			$data['Moon'][$item]['value']
-		);
-	}
-	foreach (split(",",$data['Moon']['phaseOrder']['value']) as $item) {
-		printf("<br>%s: %s\n",
-			$item,
-			$data['Moon'][$item]['value']
-		);
-	}
 ?>
 <div id="date">Date Uploaded: <?php echo $data['Moon']['phase']['modified']; ?></div>
 <h5><a href="https://github.com/gr3yw0lf/greyPMIApp">On Github</a></h5>
