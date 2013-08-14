@@ -20,6 +20,7 @@
 
 </head>
 <body>
+<h2>Moon Data</h2>
 <?php
 
 include "./config.php";
