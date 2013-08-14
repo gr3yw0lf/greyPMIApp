@@ -183,14 +183,12 @@ sub findClosest() {
     my $count = 0;
     while (!$finished) {
         for my $i (1 .. $amount-1) {
-            print " >>>> i = $i\n";
             $buffer[$i-1] = $buffer[$i];
         }
         $buffer[$amount-1] = $sortedKeys[$count];
         if (abs(($buffer[$valPos]) - $val) < $difference ) {
             $finished = 1;
         }
-        print ">>> buf = " . join(",",@buffer) . "\n";
         $count++;
         if ($count>scalar @sortedKeys) {
             die;
