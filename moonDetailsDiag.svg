@@ -238,9 +238,9 @@
        id="text3876"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878"
+         id="tspan-rise-0"
          x="39.970703"
-         y="400.46777">07:45</tspan></text>
+         y="400.46777">11:11</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -249,9 +249,9 @@
        id="text3876-2"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878-4"
+         id="tspan-set-0"
          x="39.970703"
-         y="425.46777">18:45</tspan></text>
+         y="425.46777">22:22</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -260,9 +260,9 @@
        id="text3876-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878-5"
+         id="tspan-rise-1"
          x="74.970703"
-         y="400.46777">07:45</tspan></text>
+         y="400.46777">33:33</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -271,9 +271,9 @@
        id="text3876-2-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878-4-7"
+         id="tspan-set-1"
          x="74.970703"
-         y="425.46777">18:45</tspan></text>
+         y="425.46777">44:44</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -282,9 +282,9 @@
        id="text3876-1"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878-1"
+         id="tspan-rise-2"
          x="109.50195"
-         y="399.85352">07:45</tspan></text>
+         y="399.85352">55:55</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
@@ -293,20 +293,20 @@
        id="text3876-2-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3878-4-2"
+         id="tspan-set-2"
          x="109.50195"
-         y="424.85352">18:45</tspan></text>
+         y="424.85352">66:66</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:8px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
-       x="79.173828"
+       x="75"
        y="377.75195"
        id="text3941"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3943"
-         x="79.173828"
-         y="377.75195">t=now</tspan></text>
+         x="75"
+         y="377.75195">d=today</tspan></text>
     <path
        style="fill:none;stroke:#6cd6c1;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 74.5,374.5 -35,0 5,-5"

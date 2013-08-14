@@ -9,6 +9,11 @@ use JSON;
 # loads auth keys and destinations
 # NOTE: Assumes that the module is in the standard lib path of perl
 use GreyPMIApp::Secure;
+use Astro::Coord::ECI;
+use Astro::Coord::ECI::Moon;
+use Astro::Coord::ECI::Utils qw{deg2rad};
+use Astro::MoonPhase;
+use POSIX qw(strftime);
 
 my $moonDetails= ();
 my $connectionDetails = new GreyPMIApp::Secure;
@@ -18,6 +23,7 @@ $moonDetails->{'debug'} = 'false';
 $moonDetails->{'auth'} = $connectionDetails->getAuth();
 
 &getMoonDetails(\$moonDetails->{'keys'});
+&getRiseSetTimes(\$moonDetails->{'keys'});
 
 my $json = JSON->new;
 my $jsonString = $json->encode( $moonDetails );
@@ -58,8 +64,6 @@ foreach my $url (@locations) {
 sub getMoonDetails($) {
 	my ($dataPtr) = @_;
 
-	use Astro::MoonPhase;
-	use POSIX qw(strftime);
 
 	my @phaseData = phase();
 	my $count = 0;
@@ -129,5 +133,69 @@ sub getMoonDetails($) {
 	}
 	$$dataPtr->{'phaseOrder'} = join(",",@order);
 
+}
+
+sub getRiseSetTimes() {
+	my ($dataPtr) = @_;
+	# home = 41°48′8″N 80°3′33″W=
+	#   41.002222 , -80.059167
+
+	my $lat = deg2rad (41.002222);    # Radians
+	my $long = deg2rad (-80.059167);  # Radians
+	my $alt = 1150 / 1000;        # Kilometers
+	my $moon = Astro::Coord::ECI::Moon->new ();
+	my $sta = Astro::Coord::ECI->
+		universal (time ())->
+		geodetic ($lat, $long, $alt);
+	my ($time, $rise) = $sta->next_elevation ($moon);
+
+	# go three days back, and 3 days forward
+	my @almanac = $moon->almanac_hash($sta, time - 3*24*60*60, time + 3*24*60*60);
+
+	my @moonRise;
+	my @moonSet;
+
+	foreach my $almanacItem (@almanac) {
+		if ($almanacItem->{'almanac'}->{'event'} eq "horizon") {
+			if ($almanacItem->{'almanac'}->{'description'} eq 'Moon set') {
+				push(@moonSet, $almanacItem->{'time'});
+			}
+			if ($almanacItem->{'almanac'}->{'description'} eq 'Moon rise') {
+				push(@moonRise, $almanacItem->{'time'});
+			}
+		}
+	}
+
+	my @closestSetTimeKeys = &findClosest(3,time,12*60*60,1,@moonSet);
+	my @closestRiseTimeKeys = &findClosest(3,time,12*60*60,1,@moonRise);
+	
+	$$dataPtr->{'riseSet'} = join(",",@closestRiseTimeKeys,@closestSetTimeKeys);
+}
+
+sub findClosest() {
+    my ($amount,$val,$difference,$valPos,@keys) = @_;
+    my @sortedKeys = sort {
+        $a <=> $b
+    } @keys;
+
+    my @buffer = (0) x $amount;
+    my $finished = 0;
+    my $count = 0;
+    while (!$finished) {
+        for my $i (1 .. $amount-1) {
+            print " >>>> i = $i\n";
+            $buffer[$i-1] = $buffer[$i];
+        }
+        $buffer[$amount-1] = $sortedKeys[$count];
+        if (abs(($buffer[$valPos]) - $val) < $difference ) {
+            $finished = 1;
+        }
+        print ">>> buf = " . join(",",@buffer) . "\n";
+        $count++;
+        if ($count>scalar @sortedKeys) {
+            die;
+        }
+    }
+    return @buffer;
 }
 

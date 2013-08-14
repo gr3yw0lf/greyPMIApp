@@ -1,13 +1,54 @@
 <?php
 header('Content-type: image/svg+xml');
 
+include "./config.php";
+
+$data = Array(
+        'date' => Date("m/d/y H:i"),
+        'error' => "init"
+);
+
+$mysqli = new mysqli($HOST, $USER, $PASS, $DB);
+if ($mysqli->connect_errno) {
+    $data['error'] = "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+} else {
+	$stmt = $mysqli->prepare("
+                SELECT
+                 data.id, data.data_type_id, data.created, data.modified, data.key, data.value
+                FROM
+                 `data`
+                join
+                 `data_types` as dt
+                where
+                 data.data_type_id=dt.id
+                and
+                 dt.name='Moon'
+	");
+
+	$stmt->execute();
+	$stmt->bind_result($id,$tId,$created,$modified,$key,$value);
+
+	while ($stmt->fetch()) {
+		$data['Moon'][$key] = Array (
+			"value" => $value,
+			"created" => $created,
+			"modified" => $modified
+		);
+		$data['error'] = "";
+	}
+	$stmt->close();
+
+	$mysqli->close();
+}
+
 $xdoc = new DomDocument;
 $xdoc->Load('moonDetailsDiag.svg');
 
 
-$illum = 0.0;
-$age = 0.0;
-$distance = 0.0;
+$age = $data['Moon']['age']['value'];
+$distance =  $data['Moon']['distance']['value'];
+$illum = $data['Moon']['illum']['value'];
+
 if (array_key_exists("illum",$_REQUEST)) {
 	$illum = $_REQUEST['illum'];
 	#print "illum set: $illum\n";
@@ -22,7 +63,7 @@ $s=0.0;
 if (array_key_exists("s",$_REQUEST)) {
 	$s = $_REQUEST['s'];
 }
-$phaseDateList=Array();
+$phaseDateList=split(",",$data['Moon']['phaseOrder']['value']);
 if (array_key_exists("phases",$_REQUEST)) {
 	$phaseDateList = split(",",$_REQUEST["phases"]);
 }
@@ -154,6 +195,8 @@ foreach($nodes as $circle) {
 	}
 }
 
+
+
 $nodes = $xdoc->getElementsByTagName('tspan');
 foreach($nodes as $tspan) {
 	if ($tspan->GetAttribute('id') == 'tspan3793') { 
@@ -168,7 +211,16 @@ foreach($nodes as $tspan) {
 	if (preg_match('/phaseDateText-(\d)/',$tspan->GetAttribute('id'),$matches)) {
 		// $phaseDateList[$matches[1]] = timeInSeconds=phase
 		list($time, $phase) = split("=",$phaseDateList[$matches[1]]);
-		$tspan->nodeValue = sprintf("%s", strftime("%b %a %e %H:%M" ,$time));
+		$tspan->nodeValue = sprintf("%s", strftime("%a %b %e %H:%M" ,$time));
+	}
+	if (preg_match('/tspan-(rise|set)-(\d)/',$tspan->GetAttribute('id'),$matches)) {
+		$riseSetTimes=split(",",$data['Moon']['riseSet']['value']);
+		if ($matches[1] == "rise"){
+			$time = $riseSetTimes[$matches[2]];
+		} else {
+			$time = $riseSetTimes[$matches[2]+3];
+		}
+		$tspan->nodeValue = sprintf("%s", strftime("%H:%M" ,$time));
 	}
 }
 
